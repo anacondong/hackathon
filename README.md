@@ -1,5 +1,5 @@
 # hackathon
-hackathon
-How to run 
-npm install
-npm start
+hackathon <br/>
+How to run <br/>
+npm install<br/>
+npm start<br/>
