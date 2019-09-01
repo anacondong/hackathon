@@ -1,5 +1,6 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
+import firebase from 'firebase';
 import {
   Image,
   Platform,
@@ -8,6 +9,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -44,6 +46,9 @@ export default function HomeScreen() {
           </Text>
         </View>
 
+        <Button title="Sign out" onPress={() => firebase.auth().signOut()} />
+
+        
         <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
             <Text style={styles.helpLinkText}>
@@ -65,6 +70,7 @@ export default function HomeScreen() {
           </MonoText>
         </View>
       </View>
+      
     </View>
   );
 }
