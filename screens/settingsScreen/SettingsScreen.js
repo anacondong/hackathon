@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { ExpoConfigView } from '@expo/samples';
+import styles from './css';
+
 class SettingsScreen extends Component {
   /**
    * Go ahead and delete ExpoConfigView and replace it with your content;
