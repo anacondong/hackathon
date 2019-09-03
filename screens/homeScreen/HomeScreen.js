@@ -19,12 +19,15 @@ class HomeScreen extends Component {
   return (
     <View style={styles.container}>
 
+      <Text style={{ fontSize: 20 }}>Hi {this.props.user.name} !!</Text>
+
       <View style={{ flexDirection: 'row', width: 200, justifyContent: 'space-around' }}>
           
+        <Text style={{ fontSize: 20 }}>{this.props.counter}</Text>
           <TouchableOpacity onPress={() => this.props.increaseCounter()}>
               <Text style={{ fontSize: 20 }}>Increase</Text>
           </TouchableOpacity>
-          <Text style={{ fontSize: 20 }}>{this.props.counter}</Text>
+          
           <TouchableOpacity onPress={() => this.props.decreaseCounter()}>
               <Text style={{ fontSize: 20 }}>Decrease</Text>
           </TouchableOpacity>
@@ -44,31 +47,8 @@ class HomeScreen extends Component {
           />
         </View>
 
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
-          </Text>
-        </View>
-
         <Button title="Sign out" onPress={() => firebase.auth().signOut()} />
 
-        
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
@@ -87,41 +67,6 @@ class HomeScreen extends Component {
     </View>
   );
   }
-}
-
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
 }
 
 export default HomeScreen;

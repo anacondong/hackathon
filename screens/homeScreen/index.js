@@ -5,6 +5,7 @@ import * as  counterActions from '../../src/actions/counterActions'
 const mapStateToProps = state => {
     return {
         counter: state.counterReducer.counter,
+        user: state.userReducer.user,
     }
   }
 
