@@ -3,33 +3,34 @@ import {
     View,
     Text,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    ActivityIndicator
 } from "react-native";
 import { connect } from 'react-redux'
+import * as  counterActions from './actions/counterActions'
 
 class CounterApp extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
+                
+                
                 <View style={{ flexDirection: 'row', width: 200, justifyContent: 'space-around' }}>
+                    
                     <TouchableOpacity onPress={() => this.props.increaseCounter()}>
                         <Text style={{ fontSize: 20 }}>Increase</Text>
                     </TouchableOpacity>
-                    
                     <Text style={{ fontSize: 20 }}>{this.props.counter}</Text>
-                    
                     <TouchableOpacity onPress={() => this.props.decreaseCounter()}>
                         <Text style={{ fontSize: 20 }}>Decrease</Text>
                     </TouchableOpacity>
-
-
-                    {/* <Text style={{ fontSize: 20 }}>{this.props.user}</Text>
-                    <TouchableOpacity onPress={() => this.props.setUser({name:'dong'})}>
-                        <Text style={{ fontSize: 20 }}>set user dong</Text>
-                    </TouchableOpacity> */}
-
                 </View>
+                {this.props.isLoading ? 
+                    <View style={[StyleSheet.absoluteFill, { backgroundColor: 'rgba(0,0,0,0.8)',alignItems:'center',justifyContent:'center' }]}>
+                        <ActivityIndicator  />
+                    </View>
+                :null}
             </View>
         );
     }
@@ -37,17 +38,24 @@ class CounterApp extends Component {
 
 function mapStateToProps(state) {
     return {
-        counter: state.counter,
-        // user: state.user,
+        counter: state.counterReducer.counter,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        increaseCounter: () => dispatch({ type: 'INCREASE_COUNTER' }),
-        decreaseCounter: () => dispatch({ type: 'DECREASE_COUNTER' }),
-        // setUser: (action) => dispatch({ type: 'SET_USER' , user: action.user}),
+        increaseCounter: () => dispatch(counterActions.increaseCounter()),
+        decreaseCounter: () => dispatch(counterActions.decreaseCounter()),
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CounterApp)
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});
