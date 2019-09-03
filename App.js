@@ -13,7 +13,6 @@ import AppNavigator from './src/navigation/AppNavigator';
 // init firebaseConfig
 import * as firebase from 'firebase';
 import { firebaseConfig } from './config';
-import CounterApp from './src/components/CounterApp';
 firebase.initializeApp(firebaseConfig);
 
 
@@ -32,10 +31,9 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        {/* <Provider store={store}> */}
+        <Provider store={store}>
           <AppNavigator/>
-          {/* <CounterApp /> */}
-        {/* </Provider> */}
+        </Provider>
       </View>
     );
   }

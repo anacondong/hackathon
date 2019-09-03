@@ -7,4 +7,3 @@ export const increaseCounter = () => ({
 export const decreaseCounter = () => ({
     type:actionTypes.DECREASE_COUNTER
 })
-

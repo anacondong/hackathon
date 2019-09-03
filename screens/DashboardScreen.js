@@ -11,7 +11,6 @@ class DashboardScreen extends Component {
     );
   }
 }
-export default DashboardScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -20,3 +19,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+export default DashboardScreen;

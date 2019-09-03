@@ -3,9 +3,9 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../../src/components/TabBarIcon';
-import HomeScreen from '../../screens/HomeScreen';
-import LinksScreen from '../../screens/LinksScreen';
-import SettingsScreen from '../../screens/SettingsScreen';
+import HomeScreen from '../../screens/homeScreen';
+import LinksScreen from '../../screens/linksScreen';
+import SettingsScreen from '../../screens/settingsScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
