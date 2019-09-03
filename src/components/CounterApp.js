@@ -7,7 +7,7 @@ import {
     ActivityIndicator
 } from "react-native";
 import { connect } from 'react-redux'
-import * as  counterActions from './actions/counterActions'
+import * as  counterActions from '../actions/counterActions'
 
 class CounterApp extends Component {
 

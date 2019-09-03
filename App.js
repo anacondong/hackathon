@@ -13,7 +13,7 @@ import AppNavigator from './src/navigation/AppNavigator';
 // init firebaseConfig
 import * as firebase from 'firebase';
 import { firebaseConfig } from './config';
-import CounterApp from './src/CounterApp';
+import CounterApp from './src/components/CounterApp';
 firebase.initializeApp(firebaseConfig);
 
 
