@@ -7,7 +7,7 @@ import store from './src/store'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import AppNavigator from './navigation/AppNavigator';
+import AppNavigator from './src/navigation/AppNavigator';
 
 
 // init firebaseConfig
@@ -32,10 +32,10 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <Provider store={store}>
-          {/* <AppNavigator/> */}
-          <CounterApp />
-        </Provider>
+        {/* <Provider store={store}> */}
+          <AppNavigator/>
+          {/* <CounterApp /> */}
+        {/* </Provider> */}
       </View>
     );
   }

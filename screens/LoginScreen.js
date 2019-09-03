@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import * as Google from 'expo-google-app-auth';
 import firebase from 'firebase';
-import CounterApp from './../src/CounterApp';
 
 /**
  * Store - holds our state - THERE IS ONLY ONE STATE 
@@ -144,9 +143,6 @@ class LoginScreen extends Component {
           title="Sign In With Google"
           onPress={() => this.signInWithGoogleAsync()}
         />
-        <Provider store={store}>
-          <CounterApp />
-        </Provider>
       </View>
     );
   }

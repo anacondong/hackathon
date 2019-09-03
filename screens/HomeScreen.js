@@ -12,7 +12,7 @@ import {
   Button,
 } from 'react-native';
 
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../src/components/StyledText';
 
 export default function HomeScreen() {
   return (
