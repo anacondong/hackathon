@@ -1,5 +1,5 @@
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { Component } from "react";
 import firebase from 'firebase';
 import {
   Image,
@@ -14,9 +14,16 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+class HomeScreen extends Component {
+
+  navigationOptions = {
+    header: null,
+  };
+
+  render(){
   return (
     <View style={styles.container}>
+      {console.log('props', this.props)}
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
@@ -73,11 +80,8 @@ export default function HomeScreen() {
       
     </View>
   );
+  }
 }
-
-HomeScreen.navigationOptions = {
-  header: null,
-};
 
 function DevelopmentModeNotice() {
   if (__DEV__) {
@@ -202,3 +206,5 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+
+export default HomeScreen;
