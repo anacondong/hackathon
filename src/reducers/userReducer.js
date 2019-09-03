@@ -6,8 +6,7 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UPDATE_USER':
-            return { user: state.user}
-        
+            return { user: action.user}
         default:
         return state
 

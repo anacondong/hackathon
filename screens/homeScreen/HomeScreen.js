@@ -3,23 +3,28 @@ import React, { Component } from "react";
 import firebase from 'firebase';
 import {
   Image,
-  Platform,
   ScrollView,
   Text,
   TouchableOpacity,
   View,
   Button,
+  ActivityIndicator,
 } from 'react-native';
 import { MonoText } from '../../src/components/StyledText';
 import styles from './css';
 
 class HomeScreen extends Component {
 
+  
   render(){
   return (
     <View style={styles.container}>
-
-      <Text style={{ fontSize: 20 }}>Hi {this.props.user.name} !!</Text>
+      <Image
+            source={{ uri: this.props.user.photoURL }}
+            style={styles.welcomeImage}
+            PlaceholderContent={<ActivityIndicator />}
+      />
+      <Text style={{ fontSize: 20 }}>Hi {this.props.user.displayName} !!</Text>
 
       <View style={{ flexDirection: 'row', width: 200, justifyContent: 'space-around' }}>
           

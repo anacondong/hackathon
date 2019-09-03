@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import firebase from 'firebase';
-
+import {updateUser} from '../src/actions/userActions'
 class LoadingScreen extends Component {
   componentDidMount() {
     this.checkIfLoggedIn();
@@ -12,6 +13,8 @@ class LoadingScreen extends Component {
       function(user) {
         console.log('AUTH STATE CHANGED CALLED ');
         if (user) {
+          console.log('Update user >>> ', user);
+          this.props.updateUser(user);
           console.log('navigation to >>> Main');
           this.props.navigation.navigate('Main');
         } else {
@@ -39,4 +42,16 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoadingScreen;
+const mapStateToProps = state => {
+  return {
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+      updateUser: (user) => dispatch(updateUser(user)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoadingScreen);
+
