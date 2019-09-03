@@ -2,16 +2,18 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
-
+import { Provider } from 'react-redux';
+import store from './src/store'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import AppNavigator from './navigation/AppNavigator';
+import AppNavigator from './src/navigation/AppNavigator';
 
 
 // init firebaseConfig
 import * as firebase from 'firebase';
 import { firebaseConfig } from './config';
+import CounterApp from './src/components/CounterApp';
 firebase.initializeApp(firebaseConfig);
 
 
@@ -30,7 +32,10 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator/>
+        {/* <Provider store={store}> */}
+          <AppNavigator/>
+          {/* <CounterApp /> */}
+        {/* </Provider> */}
       </View>
     );
   }
