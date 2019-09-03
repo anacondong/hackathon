@@ -1,8 +1,42 @@
 import React, { Component } from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import * as Google from 'expo-google-app-auth';
 import firebase from 'firebase';
+import CounterApp from './../src/CounterApp';
+
+/**
+ * Store - holds our state - THERE IS ONLY ONE STATE 
+ * Action - State can be modified using actions - SIMPLE OBJECTS 
+ * Dispatcher - Action needs to be sent by someone - known as dispatching an action
+ * Reducer - receives the action and modifies the state to give us a new state 
+ *  - pure functions 
+ *  - only mandatory argument is the 'type' 
+ * Subscriber - listens for state change to update the ui  
+ */
+const initialState = {
+  counter: 0,
+  // user: null,
+}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+      case 'INCREASE_COUNTER':
+          return { counter: state.counter + 1 }
+      case 'DECREASE_COUNTER':
+          return { counter: state.counter - 1 }
+      // case 'SET_USER':
+      //       console.log('action >>>',action);
+      //       return { user: action.user  }
+      default:
+        return state;
+  }
+  return state
+}
+const store = createStore(reducer)
+
 class LoginScreen extends Component {
+
   isUserEqual = (googleUser, firebaseUser) => {
     if (firebaseUser) {
       var providerData = firebaseUser.providerData;
@@ -110,6 +144,9 @@ class LoginScreen extends Component {
           title="Sign In With Google"
           onPress={() => this.signInWithGoogleAsync()}
         />
+        <Provider store={store}>
+          <CounterApp />
+        </Provider>
       </View>
     );
   }
