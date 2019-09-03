@@ -36,22 +36,6 @@ class CounterApp extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        counter: state.counterReducer.counter,
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        increaseCounter: () => dispatch(counterActions.increaseCounter()),
-        decreaseCounter: () => dispatch(counterActions.decreaseCounter()),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CounterApp)
-
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -59,3 +43,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 });
+
+mapStateToProps = state => {
+    return {
+        counter: state.counterReducer.counter,
+    }
+}
+
+mapDispatchToProps = dispatch => {
+    return {
+        increaseCounter: () => dispatch(counterActions.increaseCounter()),
+        decreaseCounter: () => dispatch(counterActions.decreaseCounter()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CounterApp);

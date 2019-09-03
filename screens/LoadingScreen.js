@@ -30,7 +30,6 @@ class LoadingScreen extends Component {
     );
   }
 }
-export default LoadingScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -39,3 +38,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+export default LoadingScreen;

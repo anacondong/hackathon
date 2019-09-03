@@ -11,6 +11,8 @@ import {
   View,
   Button,
 } from 'react-native';
+import { connect } from 'react-redux'
+import * as  counterActions from '../src/actions/counterActions'
 
 import { MonoText } from '../src/components/StyledText';
 
@@ -23,7 +25,21 @@ class HomeScreen extends Component {
   render(){
   return (
     <View style={styles.container}>
-      {console.log('props', this.props)}
+
+      <View style={{ flexDirection: 'row', width: 200, justifyContent: 'space-around' }}>
+          
+          <TouchableOpacity onPress={() => this.props.increaseCounter()}>
+              <Text style={{ fontSize: 20 }}>Increase</Text>
+          </TouchableOpacity>
+          <Text style={{ fontSize: 20 }}>{this.props.counter}</Text>
+          <TouchableOpacity onPress={() => this.props.decreaseCounter()}>
+              <Text style={{ fontSize: 20 }}>Decrease</Text>
+          </TouchableOpacity>
+      </View>
+
+
+
+
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
@@ -207,4 +223,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+mapStateToProps = state => {
+  return {
+      counter: state.counterReducer.counter,
+  }
+}
+
+mapDispatchToProps = dispatch => {
+  return {
+      increaseCounter: () => dispatch(counterActions.increaseCounter()),
+      decreaseCounter: () => dispatch(counterActions.decreaseCounter()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
