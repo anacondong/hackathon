@@ -2,9 +2,9 @@ import { createBrowserApp } from '@react-navigation/web';
 import { createSwitchNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
-import LoadingScreen from '../../screens/LoadingScreen';
-import LoginScreen from '../../screens/LoginScreen';
-import DashboardScreen from '../../screens/DashboardScreen';
+import LoadingScreen from '../../screens/loadingScreen';
+import LoginScreen from '../../screens/loginScreen';
+import DashboardScreen from '../../screens/dashboardScreen';
 
 const switchNavigator = createSwitchNavigator({
   // You could add another route here for authentication.

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LinksScreen from './LinksScreen';
-import * as  counterActions from '../../src/actions/counterActions'
+// import * as  counterActions from '../../src/actions/counterActions'
 
 const mapStateToProps = state => {
     return {

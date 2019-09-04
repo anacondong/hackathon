@@ -2,9 +2,9 @@ import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
-import LoadingScreen from '../../screens/LoadingScreen';
-import LoginScreen from '../../screens/LoginScreen';
-import DashboardScreen from '../../screens/DashboardScreen';
+import LoadingScreen from '../../screens/loadingScreen';
+import LoginScreen from '../../screens/loginScreen';
+import DashboardScreen from '../../screens/dashboardScreen';
 
 
 export default createAppContainer(
