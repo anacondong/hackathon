@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import firebase from 'firebase';
+import styles from './css';
+
 class DashboardScreen extends Component {
   render() {
     return (
@@ -11,13 +13,5 @@ class DashboardScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
 
 export default DashboardScreen;
