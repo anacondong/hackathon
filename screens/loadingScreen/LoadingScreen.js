@@ -14,7 +14,7 @@ class LoadingScreen extends Component {
       function(user) {
         // console.log('AUTH STATE CHANGED CALLED ');
         if (user) {
-          console.log('Update user >>> ', user);
+          // console.log('Update user >>> ', user);
           this.props.updateUser(user);
           // console.log('navigation to >>> Main');
           this.props.navigation.navigate('Main');

@@ -6,15 +6,8 @@ import { Provider } from 'react-redux';
 import store from './src/store'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
 import AppNavigator from './src/navigation/AppNavigator';
-
-
-// init firebaseConfig
-import * as firebase from 'firebase';
-import { firebaseConfig } from './config';
-firebase.initializeApp(firebaseConfig);
-
+import { db } from './config';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
