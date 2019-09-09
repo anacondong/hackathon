@@ -1,18 +1,17 @@
 import { connect } from 'react-redux';
 import SettingsScreen from './SettingsScreen';
-import * as  counterActions from '../../src/actions/counterActions'
 
 const mapStateToProps = state => {
-    return {
-        // counter: state.counterReducer.counter,
-    }
+  return {
+      user: state.userReducer.user,
   }
+}
 
 const mapDispatchToProps = dispatch => {
-    return {
-        // increaseCounter: () => dispatch(counterActions.increaseCounter()),
-        // decreaseCounter: () => dispatch(counterActions.decreaseCounter()),
-    }
+  return {
+    
   }
+}
+
   
   export default connect(mapStateToProps, mapDispatchToProps)(SettingsScreen);
