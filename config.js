@@ -1,3 +1,6 @@
+import Firebase from 'firebase';
+
+
 export const firebaseConfig = {
     apiKey: "AIzaSyAuFWOJapZ3-7nukVnXtSuz9wJKNUZtL2I",
     authDomain: "hackathon-ata.firebaseapp.com",
@@ -7,4 +10,7 @@ export const firebaseConfig = {
     messagingSenderId: "37463093647",
     appId: "1:37463093647:web:49ec22d20651f165"
   };
+
+const appDb = Firebase.initializeApp(firebaseConfig);
+export const db = appDb.database();
   

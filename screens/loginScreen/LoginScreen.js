@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
 import * as Google from 'expo-google-app-auth';
 import firebase from 'firebase';
 import styles from './css';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+  Image,
+  Button
+} from 'react-native';
 
 class LoginScreen extends Component {
 
@@ -47,10 +56,11 @@ class LoginScreen extends Component {
                   .database()
                   .ref('/users/' + result.user.uid)
                   .set({
-                    gmail: result.user.email,
+                    email: result.user.email,
                     profile_picture: result.additionalUserInfo.profile.picture,
                     first_name: result.additionalUserInfo.profile.given_name,
                     last_name: result.additionalUserInfo.profile.family_name,
+                    points: 0,
                     created_at: Date.now()
                   })
                   .then(function(snapshot) {
@@ -108,12 +118,43 @@ class LoginScreen extends Component {
   };
   render() {
     return (
+
       <View style={styles.container}>
-        <Button
-          title="Sign In With Google"
-          onPress={() => this.signInWithGoogleAsync()}
-        />
+        <View style={styles.inputContainer}>
+          <Image style={[styles.icon, styles.inputIcon]} source={{uri: 'https://png.icons8.com/password/androidL/40/3498db'}}/>
+          <TextInput style={styles.inputs}
+              placeholder="Email"
+              keyboardType="email-address"
+              underlineColorAndroid='transparent'/>
+        </View>
+        
+        <View style={styles.inputContainer}>
+          <Image style={[styles.icon, styles.inputIcon]} source={{uri: 'https://png.icons8.com/envelope/androidL/40/3498db'}}/>
+          <TextInput style={styles.inputs}
+              placeholder="Password"
+              secureTextEntry={true}
+              underlineColorAndroid='transparent'/>
+        </View>
+
+        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]}>
+          <Text style={styles.loginText}>Login</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.buttonContainer, styles.googleButton]} onPress={() => this.signInWithGoogleAsync()}>
+          <View style={styles.socialButtonContent}>
+            <Image style={styles.icon} source={{uri: 'https://png.icons8.com/google/androidL/40/FFFFFF'}}/>
+            <Text style={styles.loginText}>Sign in with google</Text>
+          </View>
+        </TouchableOpacity>
+
       </View>
+
+      // <View style={styles.container}>
+      //   <Button
+      //     title="Sign In With Google"
+      //     onPress={() => this.signInWithGoogleAsync()}
+      //   />
+      // </View>
     );
   }
 }
