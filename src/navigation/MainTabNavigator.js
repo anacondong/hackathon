@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../../src/components/TabBarIcon';
 import HomeScreen from '../../screens/homeScreen';
-import LinksScreen from '../../screens/linksScreen';
+import ChatsScreen from '../../screens/chatsScreen';
 import SettingsScreen from '../../screens/settingsScreen';
 
 const config = Platform.select({
@@ -35,21 +35,21 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const ChatsStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Chats: ChatsScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+ChatsStack.navigationOptions = {
+  tabBarLabel: 'Chats',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-chatboxes' : 'md-chatboxes'} />
   ),
 };
 
-LinksStack.path = '';
+ChatsStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -69,7 +69,7 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  ChatsStack,
   SettingsStack,
 });
 

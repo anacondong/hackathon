@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LinksScreen from './LinksScreen';
+import ChatsScreen from './ChatsScreen';
 // import * as  counterActions from '../../src/actions/counterActions'
 
 const mapStateToProps = state => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => {
     }
   }
   
-  export default connect(mapStateToProps, mapDispatchToProps)(LinksScreen);
+  export default connect(mapStateToProps, mapDispatchToProps)(ChatsScreen);
